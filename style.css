@@ -6,18 +6,28 @@
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(135deg, #17152e, #35204b, #683b68);
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 25px 12px;
 }
 
 .container {
+    width: 100%;
+    max-width: 500px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     color: white;
+    padding: 20px 10px;
 }
 
 h1 {
@@ -35,6 +45,7 @@ p {
     position: relative;
     width: 240px;
     height: 240px;
+    flex-shrink: 0;
     margin: auto;
 }
 
@@ -80,12 +91,15 @@ p {
     background: linear-gradient(to right, #236b36, #65c56c);
     margin: -5px auto 0;
     border-radius: 10px;
+    flex-shrink: 0;
 }
 
 .leaves {
     position: relative;
     width: 160px;
+    height: 0;
     margin: -145px auto 0;
+    flex-shrink: 0;
 }
 
 .leaf {
@@ -122,11 +136,17 @@ button {
     cursor: pointer;
     box-shadow: 0 0 15px #ff8fbd;
     transition: 0.3s;
+    flex-shrink: 0;
 }
 
 button:hover {
     transform: scale(1.1);
     background: #ff5eaa;
+}
+
+button:disabled {
+    opacity: 0.9;
+    cursor: default;
 }
 
 @keyframes petalOpen {
@@ -136,56 +156,6 @@ button:hover {
     to {
         opacity: 1;
     }
-}
-
-
-.note {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: 1.5s ease;
-    max-width: 350px;
-    margin: 20px auto;
-    padding: 20px;
-    color: #ffe1ee;
-    background: rgba(255,255,255,0.12);
-    border: 1px solid #ffb9d4;
-    border-radius: 18px;
-    line-height: 1.7;
-}
-
-.note.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-
-
-/* Çiçek açılınca not görünür */
-.note.show {
-    opacity: 1;
-    transform: translateY(0);
-    visibility: visible;
-}
-
-.container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.flower {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.note {
-    width: 90%;
-    text-align: center;
 }
 
 .note {
@@ -204,6 +174,7 @@ button:hover {
     text-align: center;
     font-size: 18px;
     line-height: 1.7;
+    overflow-wrap: break-word;
 }
 
 .note.show {
@@ -212,40 +183,36 @@ button:hover {
     transform: translateY(0);
 }
 
-
-/* TELEFON EKRANLARI İÇİN */
+/* TELEFON TASARIMI */
 
 @media screen and (max-width: 600px) {
 
     body {
         min-height: 100vh;
         height: auto;
-        overflow-x: hidden;
-        overflow-y: auto;
-        padding: 25px 12px;
+        align-items: flex-start;
+        padding: 20px 12px;
     }
 
     .container {
-        width: 100%;
-        max-width: 100%;
-        padding: 10px;
-        margin: auto;
+        min-height: auto;
+        padding: 15px 5px 35px;
+        justify-content: flex-start;
     }
 
     h1 {
         font-size: 24px;
-        line-height: 1.4;
+        margin-top: 10px;
     }
 
     p {
         font-size: 15px;
+        margin-bottom: 20px;
     }
 
     .flower {
         width: 240px;
         height: 240px;
-        max-width: 100%;
-        flex-shrink: 0;
     }
 
     .stem {
@@ -258,8 +225,8 @@ button:hover {
 
     button {
         margin-top: 190px;
-        max-width: 90%;
         padding: 14px 24px;
+        font-size: 16px;
     }
 
     .note {
@@ -269,10 +236,5 @@ button:hover {
         margin: 25px auto;
         font-size: 16px;
         line-height: 1.8;
-        overflow-wrap: anywhere;
-        word-break: normal;
-        box-sizing: border-box;
-        text-align: center;
     }
 }
-
