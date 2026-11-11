@@ -1,0 +1,213 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #17152e, #35204b, #683b68);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 12px;
+    color: #ffd9f0;
+}
+
+p {
+    color: #e9c9e9;
+    margin-bottom: 30px;
+}
+
+.flower {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    margin: auto;
+}
+
+.petals {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    transition: transform 2s ease;
+}
+
+.petal {
+    position: absolute;
+    width: 25px;
+    height: 95px;
+    background: linear-gradient(to top, #e85a91, #ffb9d4);
+    border-radius: 50% 50% 45% 45%;
+    left: 107px;
+    top: 25px;
+    transform-origin: 13px 95px;
+    opacity: 0;
+    box-shadow: 0 0 10px #ff9ac4;
+    animation: petalOpen 1.5s forwards;
+}
+
+.center {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    background: radial-gradient(circle, #fff18b, #f5a623, #c76b12);
+    border-radius: 50%;
+    left: 92px;
+    top: 92px;
+    z-index: 5;
+    box-shadow: 0 0 25px #ffd65c;
+    transform: scale(0);
+    transition: transform 1s 1.2s;
+}
+
+.stem {
+    width: 12px;
+    height: 190px;
+    background: linear-gradient(to right, #236b36, #65c56c);
+    margin: -5px auto 0;
+    border-radius: 10px;
+}
+
+.leaves {
+    position: relative;
+    width: 160px;
+    margin: -145px auto 0;
+}
+
+.leaf {
+    position: absolute;
+    width: 75px;
+    height: 35px;
+    background: linear-gradient(45deg, #236b36, #75d878);
+    border-radius: 100% 0 100% 0;
+    transform: scale(0);
+    transition: transform 1s 1s;
+}
+
+.leaf.left {
+    left: -15px;
+    transform-origin: right;
+    rotate: -20deg;
+}
+
+.leaf.right {
+    right: -15px;
+    transform-origin: left;
+    rotate: 20deg;
+    scale: -1 1;
+}
+
+button {
+    margin-top: 220px;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    background: #ff8fbd;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 0 0 15px #ff8fbd;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: #ff5eaa;
+}
+
+@keyframes petalOpen {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+.note {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: 1.5s ease;
+    max-width: 350px;
+    margin: 20px auto;
+    padding: 20px;
+    color: #ffe1ee;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid #ffb9d4;
+    border-radius: 18px;
+    line-height: 1.7;
+}
+
+.note.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+
+/* Çiçek açılınca not görünür */
+.note.show {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.flower {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.note {
+    width: 90%;
+    text-align: center;
+}
+
+.note {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 1.5s ease;
+    width: 90%;
+    max-width: 350px;
+    margin: 25px auto;
+    padding: 20px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid #ffb9d4;
+    border-radius: 18px;
+    color: #ffe1ee;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.note.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
